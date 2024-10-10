@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Cadastrar Produto</h2>
+    <form id="productForm">
+        <label for="codigo_produto">Código do Produto:</label>
+        <input type="number" id="codigo_produto" name="codigo_produto" required>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required>
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco" step="0.01" required>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" required>
+
+        <input type="submit" value="Cadastrar Produto">
+    </form>
+
+    <div id="message"></div>
+</div>
+
+<script>
+    document.getElementById('productForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio do formulário e o recarregamento da página
+
+        // Coletar dados do formulário
+        const codigoProduto = document.getElementById('codigo_produto').value;
+        const nome = document.getElementById('nome').value;
+        const descricao = document.getElementById('descricao').value;
+        const preco = document.getElementById('preco').value;
+        const quantidade = document.getElementById('quantidade').value;
+
+        // Aqui você pode adicionar a lógica para enviar os dados ao servidor
+        // Por exemplo, usando fetch para enviar para um endpoint de API
+        // Para fins de exemplo, apenas exibiremos uma mensagem de sucesso
+
+        // Exibir mensagem de sucesso
+        document.getElementById('message').innerText = "Produto cadastrado com sucesso!";
+        
+        // Limpar os campos do formulário
+        document.getElementById('productForm').reset();
+    });
+</script>
+
+</body>
+</html>
